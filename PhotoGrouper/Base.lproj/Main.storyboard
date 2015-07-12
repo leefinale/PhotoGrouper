@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -20,7 +21,86 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="162" y="337"/>
+            <point key="canvasLocation" x="255" y="328"/>
+        </scene>
+        <!--Image Preview Modal View Controller-->
+        <scene sceneID="kTb-yM-DQT">
+            <objects>
+                <viewController id="3ex-Nu-3Nn" customClass="ImagePreviewModalViewController" customModule="PhotoGrouper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8RC-fU-gny"/>
+                        <viewControllerLayoutGuide type="bottom" id="XNh-Ge-jZE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="r4c-Ez-zdp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MJn-Os-SdP">
+                                <rect key="frame" x="0.0" y="20" width="320" height="320"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="MJn-Os-SdP" secondAttribute="height" multiplier="1:1" id="rT3-3Q-pyA"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0rk-LF-6jM">
+                                <rect key="frame" x="85" y="385" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="MLr-xh-CQQ"/>
+                                    <constraint firstAttribute="width" constant="150" id="OL5-kE-Rdc"/>
+                                </constraints>
+                                <state key="normal" title="Swap">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="swapButtonPress:" destination="3ex-Nu-3Nn" eventType="touchUpInside" id="ke4-aR-ex0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mI-2d-IfF">
+                                <rect key="frame" x="85" y="495" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="c2y-k5-VbL"/>
+                                    <constraint firstAttribute="height" constant="30" id="p9c-h6-u9f"/>
+                                </constraints>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonPress:" destination="3ex-Nu-3Nn" eventType="touchUpInside" id="m6c-N4-v92"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZt-xv-Zqn">
+                                <rect key="frame" x="85" y="440" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="BmZ-mZ-MmV"/>
+                                    <constraint firstAttribute="width" constant="150" id="bED-RB-Pob"/>
+                                </constraints>
+                                <state key="normal" title="Delete">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteButtonPress:" destination="3ex-Nu-3Nn" eventType="touchUpInside" id="8Mw-i8-0WK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2mI-2d-IfF" firstAttribute="top" secondItem="SZt-xv-Zqn" secondAttribute="bottom" constant="25" id="1vs-BX-9Uf"/>
+                            <constraint firstAttribute="centerX" secondItem="SZt-xv-Zqn" secondAttribute="centerX" id="9Gf-6a-q2a"/>
+                            <constraint firstAttribute="centerX" secondItem="0rk-LF-6jM" secondAttribute="centerX" id="ENq-OD-XDU"/>
+                            <constraint firstAttribute="centerX" secondItem="2mI-2d-IfF" secondAttribute="centerX" id="ZRz-m7-I8D"/>
+                            <constraint firstItem="MJn-Os-SdP" firstAttribute="leading" secondItem="r4c-Ez-zdp" secondAttribute="leading" id="kgV-Xz-apW"/>
+                            <constraint firstItem="SZt-xv-Zqn" firstAttribute="top" secondItem="0rk-LF-6jM" secondAttribute="bottom" constant="25" id="lna-RZ-a2l"/>
+                            <constraint firstItem="MJn-Os-SdP" firstAttribute="top" secondItem="r4c-Ez-zdp" secondAttribute="top" constant="20" id="mXO-Pu-Z9W"/>
+                            <constraint firstAttribute="trailing" secondItem="MJn-Os-SdP" secondAttribute="trailing" id="net-3D-GTK"/>
+                            <constraint firstItem="0rk-LF-6jM" firstAttribute="top" secondItem="MJn-Os-SdP" secondAttribute="bottom" constant="45" id="oEa-ls-YpV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pictureImageView" destination="MJn-Os-SdP" id="GHB-vr-VYr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tiv-mR-Ctw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="606" y="328"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

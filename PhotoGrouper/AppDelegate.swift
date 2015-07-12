@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: UIScreen.mainScreen().bounds.width , height: UIScreen.mainScreen().bounds.height))
         self.window = UIWindow(frame: rect)
         
-        let numberOfTableViewRows: NSInteger = 10
-        let numberOfCollectionViewCells: NSInteger = 60
+        let numberOfTableViewRows: NSInteger = 100
+        let numberOfCollectionViewCells: NSInteger = 1
         
         var stringArray = NSMutableArray(capacity: numberOfCollectionViewCells)
         for var tableViewRow = 0; tableViewRow < numberOfTableViewRows; ++tableViewRow {
@@ -34,6 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = self.root
         self.window?.makeKeyAndVisible()
         return true
+    }
+    
+    func prefersStatusBarHidden() -> Bool {
+        return true;
     }
     
     func applicationWillResignActive(application: UIApplication) {

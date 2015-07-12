@@ -9,8 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
